@@ -1,0 +1,357 @@
+---
+layout: default
+---
+
+<!-- ═══════════════════════════════════════════════════════════════
+     GAME INTRO (preserved from original)
+═══════════════════════════════════════════════════════════════ -->
+<div id="game-intro">
+
+  <div id="scene-bg">
+    <img class="scene-svg" src="https://via.placeholder.com/1440x900.jpg" alt="Scene placeholder" style="width: 100%; height: auto; display: block;"/>
+
+    <!-- Fireflies -->
+    <div class="ff" style="width:5px;height:5px;left:18%;top:60%;animation-duration:7s;animation-delay:-1s"></div>
+    <div class="ff" style="width:4px;height:4px;left:72%;top:56%;animation-duration:9s;animation-delay:-3s"></div>
+    <div class="ff" style="width:3px;height:3px;left:35%;top:65%;animation-duration:6s;animation-delay:-2s"></div>
+    <div class="ff" style="width:5px;height:5px;left:85%;top:58%;animation-duration:8s;animation-delay:-4s"></div>
+    <div class="ff" style="width:3px;height:3px;left:55%;top:52%;animation-duration:10s;animation-delay:0s"></div>
+    <div class="ff" style="width:4px;height:4px;left:10%;top:70%;animation-duration:7.5s;animation-delay:-5s"></div>
+    <div class="ff" style="width:3px;height:3px;left:92%;top:62%;animation-duration:8.5s;animation-delay:-1.5s"></div>
+  </div>
+
+  <div id="scene-vignette"></div>
+
+  <!-- Character -->
+  <div id="char-sprite">
+    <svg viewBox="0 0 70 175" xmlns="http://www.w3.org/2000/svg" width="70" height="175">
+      <defs>
+        <radialGradient id="cG" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff8e0"/>
+          <stop offset="40%" stop-color="#f5c840" stop-opacity=".7"/>
+          <stop offset="100%" stop-color="#e08018" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="35" cy="90" rx="35" ry="88" fill="url(#cG)" opacity=".7"/>
+      <ellipse cx="35" cy="22" rx="12" ry="14" fill="#fff8e0"/>
+      <rect x="31" y="34" width="8" height="8" fill="#fff8e0" rx="2"/>
+      <path d="M18 42 Q35 38 52 42 L55 100 Q35 105 15 100Z" fill="#fff8e0"/>
+      <path d="M18 44 Q8 60 6 80 Q8 85 13 84 Q18 65 20 52Z" fill="#fff8e0"/>
+      <path d="M52 44 Q62 60 64 80 Q62 85 57 84 Q52 65 50 52Z" fill="#fff8e0"/>
+      <path d="M22 98 Q20 128 19 155 Q22 160 28 159 Q30 130 32 102Z" fill="#fff8e0"/>
+      <path d="M48 98 Q50 128 51 155 Q48 160 42 159 Q40 130 38 102Z" fill="#fff8e0"/>
+    </svg>
+  </div>
+
+  <!-- HUD -->
+  <div id="ui-top">
+    <div id="ui-location">▸ PROVENCE, FRANCE</div>
+    <div id="ui-hearts">❤️❤️❤️</div>
+  </div>
+
+  <!-- Dialogue -->
+  <div id="dialogue-wrap">
+    <div id="dialogue-box">
+      <div id="speaker-tag"></div>
+      <div id="dialogue-text"></div>
+      <div id="dialogue-arrow">▼</div>
+      <div id="a-hint">[ CLICK OR PRESS SPACE ]</div>
+    </div>
+    <div id="choice-menu"></div>
+  </div>
+
+  <div id="scene-fade"></div>
+
+  <div id="game-controls">
+    <div class="g-btn" id="music-btn" onclick="toggleMusic(event)">♪ MUSIC ON</div>
+    <div class="g-btn" id="skip-btn"  onclick="skipIntro(event)">SKIP INTRO →</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     OS PORTFOLIO — BRIGHT WIN95 PIXEL ART LIGHT MODE
+═══════════════════════════════════════════════════════════════ -->
+<div id="desktop">
+  <!-- ✦ Sparkle stars ✦ -->
+  <span class="star" style="top:6%;left:12%">✦</span>
+  <span class="star" style="top:9%;left:78%">✧</span>
+  <span class="star" style="top:18%;left:92%">✦</span>
+  <span class="star" style="top:28%;left:5%">★</span>
+  <span class="star" style="top:42%;left:88%">✦</span>
+  <span class="star" style="top:55%;left:14%">✧</span>
+  <span class="star" style="top:65%;left:94%">✦</span>
+  <span class="star" style="top:75%;left:7%">✧</span>
+  <span class="star" style="top:82%;left:85%">★</span>
+  <span class="star" style="top:22%;left:50%">✦</span>
+  <span class="star" style="top:50%;left:55%">✧</span>
+  <span class="star" style="top:12%;left:35%">★</span>
+
+  <!-- ── Desktop icons ── -->
+  <div class="icons">
+    <div class="icon" ondblclick="openWin('w-about')"   ><div class="ig">📄</div><div class="il">About.txt</div></div>
+    <div class="icon" ondblclick="openWin('w-projects')"><div class="ig">💼</div><div class="il">Projects.doc</div></div>
+    <div class="icon" ondblclick="openWin('w-blog')"    ><div class="ig">💻</div><div class="il">Blog.log</div></div>
+    <div class="icon" ondblclick="openWin('https://nicothyun.github.io/garden/')"  ><div class="ig">🪴</div><div class="il">Garden.plant</div></div>
+    <div class="icon" ondblclick="openWin('w-library')" ><div class="ig">📚</div><div class="il">Library.bk</div></div>
+    <div class="icon" ondblclick="openWin('w-contact')" ><div class="ig">📬</div><div class="il">Contact.txt</div></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       ABOUT WINDOW — Powered by _data/about.yml
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="win foc" id="w-about" style="top:52px;left:90px;width:480px;height:390px;">
+    <div class="wtb" data-win="w-about"><div class="wtb-t">📄 About.txt</div><div class="wtb-bs"><button class="wbtn" onclick="minimizeWin('w-about')">_</button><button class="wbtn" onclick="maxWin('w-about')">□</button><button class="wbtn" onclick="closeWin('w-about')">✕</button></div></div>
+    <div class="wmb"><span>File</span><span>Edit</span><span>View</span><span>Help</span></div>
+    <div class="wbody" onscroll="scrollSnd(this)">
+      <h1>{{ site.data.about.name }}</h1>
+      {% if site.data.about.gif_url %}
+      <img src="{{ site.data.about.gif_url }}" alt="sailor moon wave" class="about-gif" onerror="this.style.display='none'">
+      {% endif %}
+
+      {{ site.data.about.bio | markdownify }}
+
+      {% if site.data.about.links %}
+      <p>
+        {% for link in site.data.about.links %}
+        <a href="{{ link.url }}" target="_blank">→ {{ link.label }}</a><br>
+        {% endfor %}
+      </p>
+      {% endif %}
+
+      <hr>
+
+      {{ site.data.about.philosophy | markdownify }}
+
+      <p class="footer-note">{{ site.data.about.footer }}</p>
+    </div>
+    <div class="wsb"><span class="sp">About.txt</span><span class="sp">{{ site.data.about.location }}</span></div>
+    <div class="wgrip">◢</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       PROJECTS WINDOW — Powered by _posts with category: projects
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="win" id="w-projects" style="top:62px;left:580px;width:500px;height:420px;">
+    <div class="wtb" data-win="w-projects"><div class="wtb-t">💼 Projects.doc</div><div class="wtb-bs"><button class="wbtn" onclick="minimizeWin('w-projects')">_</button><button class="wbtn" onclick="maxWin('w-projects')">□</button><button class="wbtn" onclick="closeWin('w-projects')">✕</button></div></div>
+    <div class="wmb"><span>File</span><span>Edit</span><span>View</span></div>
+    <div class="wbody" onscroll="scrollSnd(this)">
+      <h1>Projects</h1>
+
+      {% assign project_posts = site.posts | where: "categories", "projects" %}
+
+      {% for post in project_posts %}
+      <a href="{{ post.url | relative_url }}" style="text-decoration:none; color:inherit; display:block;">
+        <div class="proj-card">
+          <div class="proj-title">{{ post.title }}</div>
+          <div class="proj-sub">{{ post.date | date: "%Y" }} – {{ post.period | default: "Present" }}</div>
+          <div class="proj-desc">{{ post.excerpt | strip_html | truncate: 200 }}</div>
+          {% if post.tags %}
+          <div class="tags">
+            {% for tag in post.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+
+      {% if project_posts.size == 0 %}
+      <p style="color:var(--text-dim); font-style:italic;">No projects yet. Add markdown files to <code>_posts/</code> with <code>categories: projects</code>.</p>
+      {% endif %}
+
+      <p style="margin-top:8px;font-size:14px;">
+        <a href="https://nicothyun.notion.site/hy-s-www-content-portfolio-archives-d04209c98f0148c4b59dc4e85bee9321" target="_blank">→ Full content archive on Notion</a>
+      </p>
+    </div>
+    <div class="wsb"><span class="sp">{{ project_posts | size }} items</span><span class="sp">Marketing & Strategy</span></div>
+    <div class="wgrip">◢</div>
+  </div>
+  
+  <!-- ═══════════════════════════════════════════════════════════════
+       BLOG WINDOW — Powered by _posts/*.md (Jekyll Collection)
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="win" id="w-blog" style="top:100px;left:200px;width:420px;height:320px;">
+    <div class="wtb" data-win="w-blog"><div class="wtb-t">💻 Blog.log</div><div class="wtb-bs"><button class="wbtn" onclick="minimizeWin('w-blog')">_</button><button class="wbtn" onclick="maxWin('w-blog')">□</button><button class="wbtn" onclick="closeWin('w-blog')">✕</button></div></div>
+    <div class="wmb"><span>File</span><span>View</span></div>
+    <div class="wbody" onscroll="scrollSnd(this)">
+      <h1>Blog</h1>
+      <p>Logs on gaming, travel, marketing, and the general mess of being online.</p>
+      <hr>
+
+      {% for post in site.posts %}
+      <p>
+        📝 <a href="{{ post.url | relative_url }}" target="_blank">→ {{ post.title }}</a>
+        <span style="color:var(--text-dim); font-size:13px;">({{ post.date | date: "%b %d, %Y" }})</span>
+      </p>
+      {% endfor %}
+
+      {% if site.posts.size == 0 %}
+      <p style="color:var(--text-dim); font-style:italic;">No posts yet. Add markdown files to <code>_posts/</code>.</p>
+      {% endif %}
+    </div>
+    <div class="wsb"><span class="sp">{{ site.posts | size }} entries</span><span class="sp">External links</span></div>
+    <div class="wgrip">◢</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       GARDEN WINDOW — Powered by _garden/*.md (Jekyll Collection)
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="win" id="w-garden" style="top:108px;left:310px;width:410px;height:340px;">
+    <div class="wtb" data-win="w-garden"><div class="wtb-t">🪴 Garden.plant</div><div class="wtb-bs"><button class="wbtn" onclick="minimizeWin('w-garden')">_</button><button class="wbtn" onclick="maxWin('w-garden')">□</button><button class="wbtn" onclick="closeWin('w-garden')">✕</button></div></div>
+    <div class="wmb"><span>File</span><span>View</span></div>
+    <div class="wbody" onscroll="scrollSnd(this)">
+      <h1>Digital Garden 🌱</h1>
+      <div class="garden-note">
+        Evergreen notes in various states of germination. 
+        <a href="https://nicothyun.github.io/garden/public/" target="_blank">→ Open full garden</a>
+      </div>
+
+      <h2>Seedlings</h2>
+
+      {% for note in site.garden %}
+      <a href="{{ note.url | relative_url }}" class="sprout-link" style="text-decoration:none; color:inherit; display:block;">
+        <div class="sprout">
+          <div class="sprout-title">{{ note.title }}</div>
+          <div class="sprout-body">{{ note.excerpt | strip_html | truncate: 140 }}</div>
+          {% if note.tags %}
+          <div class="tags" style="margin-top:6px;">
+            {% for tag in note.tags %}
+            <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+
+      {% if site.garden.size == 0 %}
+      <p style="color:var(--text-dim); font-style:italic;">No garden notes yet. Add markdown files to <code>_garden/</code>.</p>
+      {% endif %}
+    </div>
+    <div class="wsb"><span class="sp">{{ site.garden | size }} sprouts</span><span class="sp">Always growing</span></div>
+    <div class="wgrip">◢</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       LIBRARY WINDOW — Powered by _data/library.yml + _notes/*.md
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="win" id="w-library" style="top:50px;left:118px;width:640px;height:510px;">
+    <div class="wtb" data-win="w-library"><div class="wtb-t">📚 Library.bk — Books & Notes</div><div class="wtb-bs"><button class="wbtn" onclick="minimizeWin('w-library')">_</button><button class="wbtn" onclick="maxWin('w-library')">□</button><button class="wbtn" onclick="closeWin('w-library')">✕</button></div></div>
+    <div class="wmb"><span>File</span><span>View</span><span>Bookmarks</span></div>
+    <div class="wbody" onscroll="scrollSnd(this)">
+      <h1>Library</h1>
+
+      <div class="lib-tabs">
+        <div class="lib-tab on" onclick="libTab('shelf')">📚 Shelf</div>
+        <div class="lib-tab"   onclick="libTab('notes')">📝 Notes</div>
+      </div>
+
+      <!-- SHELF TAB -->
+      <div class="lib-panel on" id="lib-shelf">
+        {% if site.data.library.currently_reading %}
+        <div class="curr-hero">
+          {% assign book = site.data.library.currently_reading %}
+          <img class="curr-cover" src="{{ book.cover }}" alt="{{ book.title }}" onerror="this.outerHTML='<div class=curr-cover-ph>📗</div>'">
+          <div>
+            <div class="curr-lbl">Currently Reading</div>
+            <div class="curr-title">{{ book.title }}</div>
+            <div class="curr-author">{{ book.author }}</div>
+            <div class="curr-pct">{{ book.progress }}%<div class="pct-track"><div class="pct-fill" style="width:{{ book.progress }}%"></div></div></div>
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="shelf-lbl">Read</div>
+        <div class="cover-grid">
+          {% for book in site.data.library.read %}
+          <div class="cover-item">
+            <img class="cover-img" src="{{ book.cover }}" alt="{{ book.title }}" onerror="this.outerHTML='<div class=cover-ph>📘</div>'">
+            <div class="cover-overlay">
+              <div class="cov-t">{{ book.title }}</div>
+              <div class="cov-a">{{ book.author }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="lib-links">
+          {% for link in site.data.library.links %}
+          <a href="{{ link.url }}" target="_blank">→ {{ link.label }}</a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- NOTES TAB — Powered by _notes/*.md (Jekyll Collection) -->
+      <div class="lib-panel" id="lib-notes">
+        <p style="font-size:13px;color:#666;margin-bottom:14px;letter-spacing:.5px;">HIGHLIGHTS AND THOUGHTS THAT STUCK.</p>
+
+        {% for note in site.notes %}
+        <a href="{{ note.url | relative_url }}" style="text-decoration:none; color:inherit; display:block;">
+          <div class="note">
+            <span class="note-src">{{ note.title }}</span>
+            {{ note.excerpt | strip_html | truncate: 200 }}
+            {% if note.tags %}
+            <div class="note-tags">
+              {% for tag in note.tags %}
+              <span class="ntag">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </a>
+        {% endfor %}
+
+        {% if site.notes.size == 0 %}
+        <p style="color:var(--text-dim); font-style:italic;">No notes yet. Add markdown files to <code>_notes/</code>.</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="wsb">
+      <span class="sp">{{ site.data.library.read | size }} read</span>
+      <span class="sp">{{ site.notes | size }} notes</span>
+      <span class="sp">1 reading</span>
+    </div>
+    <div class="wgrip">◢</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       CONTACT WINDOW — Powered by _data/contact.yml
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="win" id="w-contact" style="top:110px;left:510px;width:340px;height:268px;">
+    <div class="wtb" data-win="w-contact"><div class="wtb-t">📬 Contact.txt</div><div class="wtb-bs"><button class="wbtn" onclick="minimizeWin('w-contact')">_</button><button class="wbtn" onclick="maxWin('w-contact')">□</button><button class="wbtn" onclick="closeWin('w-contact')">✕</button></div></div>
+    <div class="wmb"><span>File</span></div>
+    <div class="wbody" onscroll="scrollSnd(this)">
+      <h1>Contact</h1>
+
+      {% for item in site.data.contact %}
+      <div class="contact-row">
+        <div class="contact-ico">{{ item.icon }}</div>
+        <div class="contact-lbl">{{ item.platform }}</div>
+        <a href="{{ item.url }}" {% if item.url contains 'mailto' %}{% else %}target="_blank"{% endif %}>{{ item.handle }}</a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="wsb"><span class="sp">{{ site.data.contact | size }} links</span></div>
+    <div class="wgrip">◢</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TASKBAR
+═══════════════════════════════════════════════════════════════ -->
+<div id="taskbar">
+  <button id="start-btn" onclick="openWin('w-about')">✦ NicoOS</button>
+  <div class="tb-div"></div>
+  <div id="tb-wins">
+    <button class="tb-wbtn" id="tb-w-about"    onclick="tbClick('w-about')">📄 About</button>
+    <button class="tb-wbtn" id="tb-w-projects" onclick="tbClick('w-projects')">💼 Projects</button>
+    <button class="tb-wbtn" id="tb-w-blog"     onclick="tbClick('w-blog')">💻 Blog</button>
+    <button class="tb-wbtn" id="tb-w-garden"   onclick="tbClick('w-garden')">🪴 Garden</button>
+    <button class="tb-wbtn" id="tb-w-library"  onclick="tbClick('w-library')">📚 Library</button>
+    <button class="tb-wbtn" id="tb-w-contact"  onclick="tbClick('w-contact')">📬 Contact</button>
+  </div>
+  <div id="tray">
+    <span id="clock">00:00</span>
+  </div>
+</div>

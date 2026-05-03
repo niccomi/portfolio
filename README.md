@@ -41,14 +41,6 @@ date: YYYY-MM-DD HH:MM:SS +0800
 categories: category
 ---
 ```
-
-### Garden Note
-Create `_garden/note-title.md`:
-```yaml
----
-title: "Note Title"
-tags: [tag1, tag2]
-status: seedling
 ---
 ```
 

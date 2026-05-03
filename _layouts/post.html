@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div id="desktop-single">
+  <div class="win open foc" style="top:40px;left:40px;width:calc(100vw - 80px);height:calc(100vh - 80px);z-index:100;">
+    <div class="wtb" data-win="w-post">
+      <div class="wtb-t">💻 {{ page.title }}</div>
+      <div class="wtb-bs">
+        <a href="{{ '/' | relative_url }}" class="wbtn">✕</a>
+      </div>
+    </div>
+    <div class="wmb">
+      <span>File</span>
+      <span>Edit</span>
+      <span>View</span>
+    </div>
+    <div class="wbody" style="font-size:17px; line-height:1.8;">
+      <p style="color:var(--text-dim); font-size:14px; margin-bottom:20px;">
+        📅 {{ page.date | date: "%B %d, %Y" }} &nbsp;|&nbsp; 
+        🏷️ {{ page.categories | join: ", " | default: "uncategorized" }}
+      </p>
+
+      {{ content }}
+
+      <div class="pixel-hr" style="margin-top:40px;"></div>
+      <p style="text-align:center; font-size:14px;">
+        <a href="{{ '/' | relative_url }}#w-blog">← Back to Blog.log</a>
+      </p>
+    </div>
+    <div class="wsb">
+      <span class="sp">{{ page.title }}</span>
+      <span class="sp">{{ page.date | date: "%b %d" }}</span>
+    </div>
+  </div>
+</div>
+
+<style>
+#desktop-single {
+  width:100%; height:100vh;
+  background-color:#edd5e8;
+  background-image:repeating-conic-gradient(#e5cce0 0% 25%, #f2dff0 0% 50%);
+  background-size:20px 20px;
+  position:relative;
+  overflow:hidden;
+}
+</style>

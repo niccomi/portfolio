@@ -1,0 +1,14 @@
+- platform: Email
+  handle: niccomi@outlook.com
+  url: mailto:niccomi@outlook.comm
+  icon: ✉️
+
+- platform: LinkedIn
+  handle: /in/nuyyuey
+  url: https://www.linkedin.com/in/nuyyuey/
+  icon: 💼
+
+- platform: Twitter
+  handle: "@0xniccomi"
+  url: https://twitter.com/0xniccomi
+  icon: 🐦

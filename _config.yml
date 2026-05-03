@@ -1,0 +1,60 @@
+# ═══════════════════════════════════════════════════════════════
+#  NICOLE TEO — OS THEME JEKYLL CONFIG  (Option B: Hybrid)
+# ═══════════════════════════════════════════════════════════════
+
+title: "Nicole Teo — Marketing & Strategy"
+description: "Growth marketer with experience across crypto, payments & e-commerce"
+url: "https://nicothyun.github.io"
+baseurl: ""
+author:
+  name: Nicole Teo
+  email: nico.thyun@gmail.com
+
+# ── Collections (your content buckets) ──────────────────────────
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+  garden:
+    output: true
+    permalink: /garden/:title/
+
+  notes:
+    output: true
+    permalink: /notes/:title/
+
+# ── Defaults ────────────────────────────────────────────────────
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "garden"
+    values:
+      layout: "garden"
+  - scope:
+      path: ""
+      type: "notes"
+    values:
+      layout: "note"
+
+# ── Build Settings ──────────────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+future: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/

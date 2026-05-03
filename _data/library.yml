@@ -1,0 +1,82 @@
+currently_reading:
+  title: Obviously Awesome
+  author: April Dunford
+  cover: https://covers.openlibrary.org/b/isbn/9781999023003-M.jpg
+  progress: 68
+
+read:
+  - title: Positioning
+    author: Al Ries & Jack Trout
+    cover: https://covers.openlibrary.org/b/isbn/9780071373586-M.jpg
+    isbn: "9780071373586"
+
+  - title: Contagious
+    author: Jonah Berger
+    cover: https://covers.openlibrary.org/b/isbn/9781451686586-M.jpg
+    isbn: "9781451686586"
+
+  - title: Building a StoryBrand
+    author: Donald Miller
+    cover: https://covers.openlibrary.org/b/isbn/9780718033323-M.jpg
+    isbn: "9780718033323"
+
+  - title: This Is Marketing
+    author: Seth Godin
+    cover: https://covers.openlibrary.org/b/isbn/9780525540830-M.jpg
+    isbn: "9780525540830"
+
+  - title: Hooked
+    author: Nir Eyal
+    cover: https://covers.openlibrary.org/b/isbn/9781591847786-M.jpg
+    isbn: "9781591847786"
+
+  - title: Continuous Discovery
+    author: Teresa Torres
+    cover: https://covers.openlibrary.org/b/isbn/9781736633601-M.jpg
+    isbn: "9781736633601"
+
+  - title: Zero to One
+    author: Peter Thiel
+    cover: https://covers.openlibrary.org/b/isbn/9780804139021-M.jpg
+    isbn: "9780804139021"
+
+  - title: The Network State
+    author: Balaji Srinivasan
+    cover: https://covers.openlibrary.org/b/isbn/9781544542911-M.jpg
+    isbn: "9781544542911"
+
+  - title: The Art of Living
+    author: Epictetus
+    cover: https://covers.openlibrary.org/b/isbn/9780061286056-M.jpg
+    isbn: "9780061286056"
+
+  - title: Thinking, Fast & Slow
+    author: Daniel Kahneman
+    cover: https://covers.openlibrary.org/b/isbn/9780374533557-M.jpg
+    isbn: "9780374533557"
+
+  - title: The Courage to Be Disliked
+    author: Kishimi & Koga
+    cover: https://covers.openlibrary.org/b/isbn/9781501197277-M.jpg
+    isbn: "9781501197277"
+
+  - title: The Beginning of Infinity
+    author: David Deutsch
+    cover: https://covers.openlibrary.org/b/isbn/9780143121350-M.jpg
+    isbn: "9780143121350"
+
+  - title: Snow Crash
+    author: Neal Stephenson
+    cover: https://covers.openlibrary.org/b/isbn/9780553380958-M.jpg
+    isbn: "9780553380958"
+
+  - title: The Three-Body Problem
+    author: Liu Cixin
+    cover: https://covers.openlibrary.org/b/isbn/9780765382030-M.jpg
+    isbn: "9780765382030"
+
+links:
+  - label: Goodreads
+    url: https://www.goodreads.com
+  - label: StoryGraph
+    url: https://app.thestorygraph.com
