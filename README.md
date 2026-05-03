@@ -1,4 +1,4 @@
-# Nicole Teo — OS Theme Portfolio
+# Nicole — OS Theme Portfolio
 
 A pixel-art OS desktop portfolio built with Jekyll. 
 Styled with the Win95 aesthetic, powered by markdown.
