@@ -4,11 +4,11 @@
 
 title: "Nicole Teo — Marketing & Strategy"
 description: "Growth marketer with experience across crypto, payments & e-commerce"
-url: "https://nicothyun.github.io"
-baseurl: ""
+url: "https://niccomi.github.io"
+baseurl: "/portfolio" 
 author:
   name: Nicole Teo
-  email: nico.thyun@gmail.com
+  email: niccomi@outlook.com
 
 # ── Collections (your content buckets) ──────────────────────────
 collections:
