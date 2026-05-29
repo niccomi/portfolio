@@ -140,7 +140,7 @@ layout: default
       {% assign project_posts = site.posts | where: "categories", "projects" %}
 
       {% for post in project_posts %}
-      <a href="{{ post.url | relative_url }}" style="text-decoration:none; color:inherit; display:block;">
+      <a href="{{ post.url | relative_url }}" onclick="openIframeWin('{{ post.url | relative_url }}', '💼 {{ post.title | escape }}', 'w-proj-post-{{ forloop.index }}'); return false;" style="text-decoration:none; color:inherit; display:block;">
         <div class="proj-card">
           <div class="proj-title">{{ post.title }}</div>
           <div class="proj-sub">{{ post.date | date: "%Y" }} – {{ post.period | default: "Present" }}</div>
@@ -153,6 +153,7 @@ layout: default
           </div>
           {% endif %}
         </div>
+      </a>
       {% endfor %}
 
       {% if project_posts.size == 0 %}

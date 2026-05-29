@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<!-- When loaded inside the homepage popup iframe, strip the standalone
+     window chrome so only the article content shows (no window-in-a-window). -->
+<script>if (window.self !== window.top) document.documentElement.classList.add('in-frame');</script>
+
 <div id="desktop-single">
   <div class="win open foc" style="top:40px;left:40px;width:calc(100vw - 80px);height:calc(100vh - 80px);z-index:100;">
     <div class="wtb" data-win="w-post">
@@ -23,8 +27,8 @@ layout: default
 
       {{ content }}
 
-      <div class="pixel-hr" style="margin-top:40px;"></div>
-      <p style="text-align:center; font-size:14px;">
+      <div class="pixel-hr frame-hide" style="margin-top:40px;"></div>
+      <p class="frame-hide" style="text-align:center; font-size:14px;">
         <a href="{{ '/' | relative_url }}#w-blog">← Back to Blog.log</a>
       </p>
     </div>
@@ -44,4 +48,20 @@ layout: default
   position:relative;
   overflow:hidden;
 }
+
+/* ── Inside the homepage popup iframe: drop the standalone window chrome ── */
+html.in-frame, html.in-frame body { background:transparent; margin:0; }
+html.in-frame #desktop-single {
+  width:auto; height:auto; overflow:visible;
+  background:transparent; background-image:none;
+}
+html.in-frame #desktop-single .win {
+  position:static; left:0; top:0; width:100%; height:auto;
+  box-shadow:none; border:0; background:transparent;
+}
+html.in-frame #desktop-single .wtb,
+html.in-frame #desktop-single .wmb,
+html.in-frame #desktop-single .wsb { display:none; }
+html.in-frame #desktop-single .wbody { height:auto; margin:0; box-shadow:none; }
+html.in-frame .frame-hide { display:none; }
 </style>

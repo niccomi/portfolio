@@ -351,9 +351,13 @@ function openIframeWin(url, title, winId) {
   // Generate unique ID if not provided
   const id = winId || 'w-iframe-' + Date.now();
 
-  // Close existing window with same ID
+  // Remove any existing window with the same ID (e.g. re-opening the same post)
+  // so we never end up with duplicate IDs in the DOM.
   const existing = document.getElementById(id);
-  if (existing) closeWin(id);
+  if (existing) {
+    closeWin(id);        // removes its taskbar button
+    existing.remove();   // remove the stale element itself
+  }
 
   // Create window element
   const win = document.createElement('div');
