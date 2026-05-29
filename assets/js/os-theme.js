@@ -340,6 +340,114 @@ function tick() {
 }
 tick(); setInterval(tick,10000);
 
+
+
+/* ═══════════════════════════════════════════════════════════════
+   IFRAME WINDOW SYSTEM (Option C)
+   Opens any URL as a draggable popup window within the desktop
+═══════════════════════════════════════════════════════════════ */
+
+function openIframeWin(url, title, winId) {
+  // Generate unique ID if not provided
+  const id = winId || 'w-iframe-' + Date.now();
+
+  // Close existing window with same ID
+  const existing = document.getElementById(id);
+  if (existing) closeWin(id);
+
+  // Create window element
+  const win = document.createElement('div');
+  win.className = 'win open foc';
+  win.id = id;
+  win.style.cssText = 'top:60px;left:220px;width:520px;height:440px;z-index:' + (++topZ);
+
+  win.innerHTML = `
+    <div class="wtb" data-win="${id}">
+      <div class="wtb-t">${title}</div>
+      <div class="wtb-bs">
+        <button class="wbtn" onclick="minimizeWin('${id}')">_</button>
+        <button class="wbtn" onclick="maxWin('${id}')">□</button>
+        <button class="wbtn" onclick="closeWin('${id}')">✕</button>
+      </div>
+    </div>
+    <div class="wmb"><span>File</span><span>View</span></div>
+    <div class="wbody" style="padding:0; overflow:hidden;">
+      <iframe src="${url}" style="width:100%; height:100%; border:none; background:#fdf8ff;" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+    </div>
+    <div class="wsb"><span class="sp">${title}</span><span class="sp">Reading</span></div>
+    <div class="wgrip">◢</div>
+  `;
+
+  document.getElementById('desktop').appendChild(win);
+
+  // Add drag behavior
+  const bar = win.querySelector('.wtb');
+  let drag = false, sx, sy, sl, st;
+  bar.addEventListener('mousedown', e => {
+    if (e.target.classList.contains('wbtn')) return;
+    drag = true; sx = e.clientX; sy = e.clientY; 
+    sl = win.offsetLeft; st = win.offsetTop;
+    focusWin(id); e.preventDefault();
+  });
+  document.addEventListener('mousemove', e => {
+    if (!drag) return;
+    win.style.left = Math.max(0, sl + e.clientX - sx) + 'px';
+    win.style.top = Math.max(0, st + e.clientY - sy) + 'px';
+  });
+  document.addEventListener('mouseup', () => { drag = false; });
+
+  // Resize behavior
+  const grip = win.querySelector('.wgrip');
+  let res = false, rsx, rsy, rsw, rsh;
+  grip.addEventListener('mousedown', e => {
+    res = true; rsx = e.clientX; rsy = e.clientY; 
+    rsw = win.offsetWidth; rsh = win.offsetHeight;
+    e.preventDefault(); e.stopPropagation();
+  });
+  document.addEventListener('mousemove', e => {
+    if (!res) return;
+    win.style.width = Math.max(280, rsw + e.clientX - rsx) + 'px';
+    win.style.height = Math.max(160, rsh + e.clientY - rsy) + 'px';
+  });
+  document.addEventListener('mouseup', () => { res = false; });
+
+  // Focus on click
+  win.addEventListener('mousedown', () => focusWin(id));
+
+  // Add to taskbar
+  const tbWins = document.getElementById('tb-wins');
+  const tbBtn = document.createElement('button');
+  tbBtn.className = 'tb-wbtn vis';
+  tbBtn.id = 'tb-' + id;
+  tbBtn.textContent = title.substring(0, 20) + (title.length > 20 ? '...' : '');
+  tbBtn.onclick = () => tbClick(id);
+  tbWins.appendChild(tbBtn);
+
+  sndOpen();
+  focusWin(id);
+}
+
+/* Override closeWin to also remove taskbar button for dynamic windows */
+const originalCloseWin = closeWin;
+closeWin = function(id) {
+  const tb = document.getElementById('tb-' + id);
+  if (tb) tb.remove();
+  originalCloseWin(id);
+};
+
+/* Override minimizeWin to handle dynamic taskbar buttons */
+const originalMinimizeWin = minimizeWin;
+minimizeWin = function(id) {
+  const w = document.getElementById(id);
+  w.classList.remove('open');
+  const tb = document.getElementById('tb-' + id);
+  if (tb) {
+    tb.classList.add('vis');
+    tb.classList.remove('act');
+  }
+};
+
+
 /* Icon select */
 document.querySelectorAll('.icon').forEach(ic=>{
   ic.addEventListener('click',()=>{ document.querySelectorAll('.icon').forEach(i=>i.classList.remove('sel')); ic.classList.add('sel'); });

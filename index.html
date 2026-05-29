@@ -91,7 +91,7 @@ layout: default
     <div class="icon" ondblclick="openWin('w-about')"   ><div class="ig">📄</div><div class="il">About.txt</div></div>
     <div class="icon" ondblclick="openWin('w-projects')"><div class="ig">💼</div><div class="il">Projects.doc</div></div>
     <div class="icon" ondblclick="openWin('w-blog')"    ><div class="ig">💻</div><div class="il">Blog.log</div></div>
-    <div class="icon" ondblclick="openWin('https://nicothyun.github.io/garden/')"  ><div class="ig">🪴</div><div class="il">Garden.plant</div></div>
+    <div class="icon" ondblclick="openWin('w-garden')"  ><div class="ig">🪴</div><div class="il">Garden.plant</div></div>
     <div class="icon" ondblclick="openWin('w-library')" ><div class="ig">📚</div><div class="il">Library.bk</div></div>
     <div class="icon" ondblclick="openWin('w-contact')" ><div class="ig">📬</div><div class="il">Contact.txt</div></div>
   </div>
@@ -153,7 +153,6 @@ layout: default
           </div>
           {% endif %}
         </div>
-      </a>
       {% endfor %}
 
       {% if project_posts.size == 0 %}
@@ -167,9 +166,10 @@ layout: default
     <div class="wsb"><span class="sp">{{ project_posts | size }} items</span><span class="sp">Marketing & Strategy</span></div>
     <div class="wgrip">◢</div>
   </div>
-  
+
   <!-- ═══════════════════════════════════════════════════════════════
        BLOG WINDOW — Powered by _posts/*.md (Jekyll Collection)
+       Entries open as iframe popup windows (Option C)
   ═══════════════════════════════════════════════════════════════ -->
   <div class="win" id="w-blog" style="top:100px;left:200px;width:420px;height:320px;">
     <div class="wtb" data-win="w-blog"><div class="wtb-t">💻 Blog.log</div><div class="wtb-bs"><button class="wbtn" onclick="minimizeWin('w-blog')">_</button><button class="wbtn" onclick="maxWin('w-blog')">□</button><button class="wbtn" onclick="closeWin('w-blog')">✕</button></div></div>
@@ -179,18 +179,25 @@ layout: default
       <p>Logs on gaming, travel, marketing, and the general mess of being online.</p>
       <hr>
 
-      {% for post in site.posts %}
-      <p>
-        📝 <a href="{{ post.url | relative_url }}" target="_blank">→ {{ post.title }}</a>
-        <span style="color:var(--text-dim); font-size:13px;">({{ post.date | date: "%b %d, %Y" }})</span>
-      </p>
+      {% assign blog_posts = site.posts | where_exp: "post", "post.categories != 'projects'" %}
+
+      {% for post in blog_posts %}
+      <div class="blog-entry" onclick="openIframeWin('{{ post.url | relative_url }}', '💻 {{ post.title | escape }}', 'w-blog-post-{{ forloop.index }}')" style="cursor:pointer;">
+        <h3>📝 {{ post.title }}</h3>
+        <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+        <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
+        <div class="blog-actions">
+          <span class="blog-action-btn">Open ↗</span>
+          <a href="{{ post.url | relative_url }}" target="_blank" class="blog-action-btn" onclick="event.stopPropagation();">Permalink →</a>
+        </div>
+      </div>
       {% endfor %}
 
-      {% if site.posts.size == 0 %}
+      {% if blog_posts.size == 0 %}
       <p style="color:var(--text-dim); font-style:italic;">No posts yet. Add markdown files to <code>_posts/</code>.</p>
       {% endif %}
     </div>
-    <div class="wsb"><span class="sp">{{ site.posts | size }} entries</span><span class="sp">External links</span></div>
+    <div class="wsb"><span class="sp">{{ blog_posts | size }} entries</span><span class="sp">External links</span></div>
     <div class="wgrip">◢</div>
   </div>
 
@@ -210,8 +217,7 @@ layout: default
       <h2>Seedlings</h2>
 
       {% for note in site.garden %}
-      <a href="{{ note.url | relative_url }}" class="sprout-link" style="text-decoration:none; color:inherit; display:block;">
-        <div class="sprout">
+      <div class="sprout" onclick="openIframeWin('{{ note.url | relative_url }}', '🪴 {{ note.title | escape }}', 'w-garden-note-{{ forloop.index }}')" style="cursor:pointer;">
           <div class="sprout-title">{{ note.title }}</div>
           <div class="sprout-body">{{ note.excerpt | strip_html | truncate: 140 }}</div>
           {% if note.tags %}
@@ -222,7 +228,6 @@ layout: default
           </div>
           {% endif %}
         </div>
-      </a>
       {% endfor %}
 
       {% if site.garden.size == 0 %}
@@ -287,8 +292,7 @@ layout: default
         <p style="font-size:13px;color:#666;margin-bottom:14px;letter-spacing:.5px;">HIGHLIGHTS AND THOUGHTS THAT STUCK.</p>
 
         {% for note in site.notes %}
-        <a href="{{ note.url | relative_url }}" style="text-decoration:none; color:inherit; display:block;">
-          <div class="note">
+        <div class="note" onclick="openIframeWin('{{ note.url | relative_url }}', '📝 {{ note.title | escape }}', 'w-lib-note-{{ forloop.index }}')" style="cursor:pointer;">
             <span class="note-src">{{ note.title }}</span>
             {{ note.excerpt | strip_html | truncate: 200 }}
             {% if note.tags %}
@@ -299,7 +303,6 @@ layout: default
             </div>
             {% endif %}
           </div>
-        </a>
         {% endfor %}
 
         {% if site.notes.size == 0 %}
