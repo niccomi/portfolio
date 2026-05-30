@@ -180,9 +180,11 @@ layout: default
       <p>Logs on gaming, travel, marketing, and the general mess of being online.</p>
       <hr>
 
-      {% assign blog_posts = site.posts | where_exp: "post", "post.categories != 'projects'" %}
-
-      {% for post in blog_posts %}
+      {% comment %} Show only non-project posts (exclude anything in the 'projects' category). {% endcomment %}
+      {% assign blog_count = 0 %}
+      {% for post in site.posts %}
+      {% unless post.categories contains 'projects' %}
+      {% assign blog_count = blog_count | plus: 1 %}
       <div class="blog-entry" onclick="openIframeWin('{{ post.url | relative_url }}', '💻 {{ post.title | escape }}', 'w-blog-post-{{ forloop.index }}')" style="cursor:pointer;">
         <h3>📝 {{ post.title }}</h3>
         <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
@@ -192,13 +194,14 @@ layout: default
           <a href="{{ post.url | relative_url }}" target="_blank" class="blog-action-btn" onclick="event.stopPropagation();">Permalink →</a>
         </div>
       </div>
+      {% endunless %}
       {% endfor %}
 
-      {% if blog_posts.size == 0 %}
-      <p style="color:var(--text-dim); font-style:italic;">No posts yet. Add markdown files to <code>_posts/</code>.</p>
+      {% if blog_count == 0 %}
+      <p style="color:var(--text-dim); font-style:italic;">No blog posts yet. Add markdown files to <code>_posts/</code> with a non-<code>projects</code> category.</p>
       {% endif %}
     </div>
-    <div class="wsb"><span class="sp">{{ blog_posts | size }} entries</span><span class="sp">External links</span></div>
+    <div class="wsb"><span class="sp">{{ blog_count }} entries</span><span class="sp">External links</span></div>
     <div class="wgrip">◢</div>
   </div>
 
