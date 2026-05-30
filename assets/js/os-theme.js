@@ -248,13 +248,27 @@ function endIntro() {
 
 function skipIntro(e) { e&&e.stopPropagation(); endIntro(); }
 
-document.getElementById('game-intro').addEventListener('click',()=>{
-  if(!introStarted){startIntro();return;}
-  advanceStory();
-});
-document.addEventListener('keydown',e=>{
-  if(e.code==='Space'&&introActive){e.preventDefault();if(!introStarted){startIntro();return;}advanceStory();}
-});
+const _gameIntro = document.getElementById('game-intro');
+if (_gameIntro) {
+  _gameIntro.addEventListener('click',()=>{
+    if(!introStarted){startIntro();return;}
+    advanceStory();
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.code==='Space'&&introActive){e.preventDefault();if(!introStarted){startIntro();return;}advanceStory();}
+  });
+} else {
+  // Game intro is hidden — skip it and land straight on the desktop.
+  introActive = false;
+  document.addEventListener('DOMContentLoaded',()=>{
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#w-')) {
+      const w = document.getElementById(hash.replace('#',''));
+      if (w && w.classList.contains('win')) { openWin(hash.replace('#','')); return; }
+    }
+    openWin('w-about');
+  });
+}
 
 /* ══════════════════════════════════════════════════
    OS WINDOW SYSTEM

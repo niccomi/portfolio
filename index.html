@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<!-- GAME INTRO temporarily hidden. It is wrapped in a Liquid comment (opener just
+     below, closer right after the game-intro closing div). Remove both wrappers to
+     restore the intro. -->
+{% comment %}
 <!-- ═══════════════════════════════════════════════════════════════
      GAME INTRO (preserved from original)
 ═══════════════════════════════════════════════════════════════ -->
@@ -67,6 +71,7 @@ layout: default
     <div class="g-btn" id="skip-btn"  onclick="skipIntro(event)">SKIP INTRO →</div>
   </div>
 </div>
+{% endcomment %}
 
 <!-- ═══════════════════════════════════════════════════════════════
      OS PORTFOLIO — BRIGHT WIN95 PIXEL ART LIGHT MODE
