@@ -1,0 +1,7 @@
+# Jekyll build output — rebuilt by CI (actions/jekyll-build-pages); never commit it
+_site/
+_site_preview/
+.jekyll-cache/
+
+# Local tooling / preview config
+.claude/
