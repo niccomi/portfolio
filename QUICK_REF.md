@@ -2,44 +2,61 @@
 
 ## Add Content
 
-| Type | Command | Location |
-|------|---------|----------|
-| Blog post | `_posts/YYYY-MM-DD-title.md` | Auto-listed in Blog.log |
-| Book note | `_notes/title.md` | Auto-listed in Library → Notes |
-| Project | Edit `_data/projects.yml` | Listed in Projects.doc |
-| Book | Edit `_data/library.yml` | Listed in Library → Shelf |
+| Type | File | Shows in |
+|------|------|----------|
+| Project | `_posts/YYYY-MM-DD-title.md` with `category: projects` | Projects.doc (as a card) |
+| Blog post | `_posts/YYYY-MM-DD-title.md` with any other category | Blog.log |
+| About / Contact | edit `_data/about.yml` / `_data/contact.yml` | About.txt / Contact.txt |
+| Library (hidden) | `_data/library.yml` | Library.bk *(currently hidden)* |
+
+**Rule:** `category: projects` → Projects. Anything else (`blog`, `personal`, …) → Blog.
 
 ## Front Matter Templates
+
+### Project
+```yaml
+---
+layout: post
+category: projects
+project_type: work          # or personal (optional)
+title: Project Title
+headline: One-line summary
+date: 2025-01-15
+image: /images/thumb.png    # card image (preview: also works)
+tags: [Branding, Strategy]  # optional
+period: Present             # optional
+---
+```
 
 ### Blog Post
 ```yaml
 ---
 layout: post
-title: "Title"
-date: 2024-01-15 12:00:00 +0800
-categories: category
+category: blog              # NOT "projects"
+title: Post Title
+date: 2025-01-15
 ---
 ```
 
-### Book Note
-```yaml
----
-title: "Book — Author"
-source: "Book Title"
-tags: [tag1, tag2]
----
-```
+## Images
+- Put files in `images/`, reference as `/images/name.png`.
+- Card thumbnail = `image:` **or** `preview:` front matter.
+- Use hyphens, **no spaces**, in filenames (`my-image.png`).
+
+## Behavior notes
+- Project & blog entries open as **draggable popup windows** (iframe of the post).
+- Each post also has a real permalink (good for sharing / SEO).
+- **Library** and the **game intro** are hidden but preserved — see README to re-enable.
 
 ## URLs
 
 | Page | URL |
 |------|-----|
-| Homepage | `/` |
-| Blog post | `/blog/YYYY/MM/DD/title/` |
-| Garden note | `/garden/title/` |
-| Book note | `/notes/title/` |
-| Desktop + Blog open | `/#w-blog` |
-| Desktop + Library open | `/#w-library` |
+| Homepage | `/portfolio/` |
+| Blog/Project post | `/portfolio/blog/YYYY/MM/DD/title/` |
+| Desktop + Blog open | `/portfolio/#w-blog` |
+| Desktop + Projects open | `/portfolio/#w-projects` |
+| Local dev | `http://localhost:4000/portfolio/` |
 
 ## Deploy
 
@@ -47,4 +64,5 @@ tags: [tag1, tag2]
 git add . && git commit -m "content: update" && git push
 ```
 
-GitHub Pages auto-builds from `main` branch.
+GitHub Pages auto-builds from `main` via `.github/workflows/jekyll.yml`
+(Pages Source = **GitHub Actions**). Keep only **one** Pages workflow.

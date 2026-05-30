@@ -454,6 +454,14 @@ body { font-family:'VT323',monospace; background:var(--desk); }
   font-size:11px; letter-spacing:.8px; color:#6858a0;
   border:1px solid #b0a0cc; background:#ede8f8; padding:0 6px; text-transform:uppercase;
 }
+/* Card action buttons (Open / Permalink) — shared by project & blog cards */
+.proj-actions, .blog-actions { display:flex; gap:8px; align-items:center; margin-top:10px; }
+.proj-action-btn, .blog-action-btn {
+  font-size:12px; letter-spacing:.5px; color:var(--navy);
+  border:1px solid #b0a0cc; background:#ede8f8; padding:2px 8px;
+  text-decoration:none; cursor:pointer; white-space:nowrap;
+}
+.proj-action-btn:hover, .blog-action-btn:hover { background:#ddd0f0; }
 
 /* ── Contact ── */
 .contact-row { display:flex; align-items:center; gap:14px; padding:10px 0; border-bottom:1px solid #d8c8e8; }

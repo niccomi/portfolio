@@ -1,11 +1,12 @@
 ---
 layout:     post
 category:   projects
+project_type: work 
 
 title:      Coins.ph / Brand Narrative Shift from E-wallet to Crypto-First 
 headline:   I was tasked with shifting the branding narrative from e-wallet to positioning the brand as a crypto-first. 
 date:       2022-05-01
-preview: /images/coins/coins-ph-app-branding.png
+image: /images/coins/coins-ph-app-branding.png
 ---
 
 **Industry**: Cryptocurrency, Mobile Payments<br>
@@ -26,7 +27,7 @@ I was tasked with shifting the branding narrative from e-wallet to positioning t
 ## Role 
 
 <figure>
-<img src="\images\coins\coins new app.png" width="350"><figcaption>Coins new app and rebranding</figcaption>
+<img src="/images/coins/coins-new-app.png" width="350"><figcaption>Coins new app and rebranding</figcaption>
 </figure>
 
 To simplify and make crypto concepts digestible and friendly to “normies” and the majority of the e-wallet users, we position the brand voice as a friendly Filipino financially-educated peer and friend.
@@ -54,7 +55,7 @@ Selected UGC and meme campaigns:
 ### Second phase 
 
 <figure>
-<img src="\images\coins\Coins-Champion---JP-Grabador-1.png"><figcaption>JP Grabador, a Coins Champion, sharing how Coins.ph helps him to <a href="https://coins.ph/blog/discover-why-coins-champion-jp-educates-filipinos/">achieve his financial goals</a> and why he wants to help others learn more about digital finance and cryptocurrency.</figcaption>
+<img src="/images/coins/Coins-Champion---JP-Grabador-1.png"><figcaption>JP Grabador, a Coins Champion, sharing how Coins.ph helps him to <a href="https://coins.ph/blog/discover-why-coins-champion-jp-educates-filipinos/">achieve his financial goals</a> and why he wants to help others learn more about digital finance and cryptocurrency.</figcaption>
 </figure>
 
 Launched Coins Champions, an ambassador program, to educate and onboard Filipinos about digital finance and introduced a series of crypto education activation events, both online and offline (i.e Crypto Free Throws at PBA Finals, Crypto Campus Roadshows in De La Salle and Ateneo de Manila). 

@@ -146,26 +146,28 @@ layout: default
       {% assign project_posts = site.posts | where: "categories", "projects" %}
 
       {% for post in project_posts %}
-      <a href="{{ post.url | relative_url }}" onclick="openIframeWin('{{ post.url | relative_url }}', '💼 {{ post.title | escape }}', 'w-proj-post-{{ forloop.index }}'); return false;" style="text-decoration:none; color:inherit; display:block;">
-        <div class="proj-card">
-          {% assign card_img = post.image | default: post.preview %}
-          {% if card_img %}
-          <img class="proj-thumb" src="{{ card_img | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" onerror="this.outerHTML='<div class=proj-thumb-ph>💼</div>'">
-          {% else %}
-          <div class="proj-thumb-ph">💼</div>
-          {% endif %}
-          <div class="proj-title">{{ post.title }}</div>
-          <div class="proj-sub">{{ post.date | date: "%Y" }} – {{ post.period | default: "Present" }}</div>
-          <div class="proj-desc">{{ post.excerpt | strip_html | truncate: 200 }}</div>
-          {% if post.tags %}
-          <div class="tags">
-            {% for tag in post.tags %}
-            <span class="tag">{{ tag }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
+      <div class="proj-card" onclick="openIframeWin('{{ post.url | relative_url }}', '💼 {{ post.title | escape }}', 'w-proj-post-{{ forloop.index }}')" style="cursor:pointer;">
+        {% assign card_img = post.image | default: post.preview %}
+        {% if card_img %}
+        <img class="proj-thumb" src="{{ card_img | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" onerror="this.outerHTML='<div class=proj-thumb-ph>💼</div>'">
+        {% else %}
+        <div class="proj-thumb-ph">💼</div>
+        {% endif %}
+        <div class="proj-title">{{ post.title }}</div>
+        <div class="proj-sub">{{ post.date | date: "%Y" }} – {{ post.period | default: "Present" }}</div>
+        <div class="proj-desc">{{ post.excerpt | strip_html | truncate: 200 }}</div>
+        {% if post.tags %}
+        <div class="tags">
+          {% for tag in post.tags %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
         </div>
-      </a>
+        {% endif %}
+        <div class="proj-actions">
+          <span class="proj-action-btn">Open ↗</span>
+          <a href="{{ post.url | relative_url }}" target="_blank" class="proj-action-btn" onclick="event.stopPropagation();">Permalink →</a>
+        </div>
+      </div>
       {% endfor %}
 
       {% if project_posts.size == 0 %}

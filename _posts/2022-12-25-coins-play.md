@@ -22,7 +22,7 @@ I introduced Coins Play as an educational storytelling initiative aimed at educa
 ## User Flow
 
 <figure>
-<img src="/images/coins/Coins Play User Flow.jpg" width="350"><figcaption>Rough sketch of how we're guiding users</figcaption>
+<img src="/images/coins/coins-play-user-flow.jpg" width="350"><figcaption>Rough sketch of how we're guiding users</figcaption>
 </figure>
 
 Coins Arcade allow gamers to enjoy games within the Coins.ph app without having to invest their own capital in gaming NFT assets.
@@ -32,7 +32,7 @@ Through Coins Arcade, users play casual onchain games on the app. They are activ
 ## Role 
 
 <figure>
-<img src="/images/coins/coins townstar gala.png" width="300"><figcaption>Coins Play Town Star AMA & Video Playthrough</figcaption>
+<img src="/images/coins/coins-townstar-gala.png" width="300"><figcaption>Coins Play Town Star AMA & Video Playthrough</figcaption>
 </figure>
 
 With a team under my helm, I led Coins Play as part of the branding and marketing strategy to educate Filipino mobile gamers on blockchain and crypto concepts and to activate them into playing Coins Arcade. 
