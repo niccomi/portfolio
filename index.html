@@ -92,7 +92,8 @@ layout: default
     <div class="icon" ondblclick="openWin('w-projects')"><div class="ig">💼</div><div class="il">Projects.doc</div></div>
     <div class="icon" ondblclick="openWin('w-blog')"    ><div class="ig">💻</div><div class="il">Blog.log</div></div>
     <div class="icon" ondblclick="openWin('w-garden')"  ><div class="ig">🪴</div><div class="il">Garden.plant</div></div>
-    <div class="icon" ondblclick="openWin('w-library')" ><div class="ig">📚</div><div class="il">Library.bk</div></div>
+    {% comment %} Library temporarily hidden — re-enable by uncommenting this icon. {% endcomment %}
+    {% comment %}<div class="icon" ondblclick="openWin('w-library')" ><div class="ig">📚</div><div class="il">Library.bk</div></div>{% endcomment %}
     <div class="icon" ondblclick="openWin('w-contact')" ><div class="ig">📬</div><div class="il">Contact.txt</div></div>
   </div>
 
@@ -360,7 +361,7 @@ layout: default
     <button class="tb-wbtn" id="tb-w-projects" onclick="tbClick('w-projects')">💼 Projects</button>
     <button class="tb-wbtn" id="tb-w-blog"     onclick="tbClick('w-blog')">💻 Blog</button>
     <button class="tb-wbtn" id="tb-w-garden"   onclick="tbClick('w-garden')">🪴 Garden</button>
-    <button class="tb-wbtn" id="tb-w-library"  onclick="tbClick('w-library')">📚 Library</button>
+    {% comment %}<button class="tb-wbtn" id="tb-w-library"  onclick="tbClick('w-library')">📚 Library</button>{% endcomment %}
     <button class="tb-wbtn" id="tb-w-contact"  onclick="tbClick('w-contact')">📬 Contact</button>
   </div>
   <div id="tray">
