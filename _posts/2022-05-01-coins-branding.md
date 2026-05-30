@@ -5,7 +5,7 @@ category:   projects
 title:      Coins.ph / Brand Narrative Shift from E-wallet to Crypto-First 
 headline:   I was tasked with shifting the branding narrative from e-wallet to positioning the brand as a crypto-first. 
 date:       2022-05-01
-preview: /images/coins/coins ph app branding.png
+preview: /images/coins/coins-ph-app-branding.png
 ---
 
 **Industry**: Cryptocurrency, Mobile Payments<br>

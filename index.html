@@ -148,8 +148,9 @@ layout: default
       {% for post in project_posts %}
       <a href="{{ post.url | relative_url }}" onclick="openIframeWin('{{ post.url | relative_url }}', '💼 {{ post.title | escape }}', 'w-proj-post-{{ forloop.index }}'); return false;" style="text-decoration:none; color:inherit; display:block;">
         <div class="proj-card">
-          {% if post.image %}
-          <img class="proj-thumb" src="{{ post.image | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" onerror="this.outerHTML='<div class=proj-thumb-ph>💼</div>'">
+          {% assign card_img = post.image | default: post.preview %}
+          {% if card_img %}
+          <img class="proj-thumb" src="{{ card_img | relative_url }}" alt="{{ post.title | escape }}" loading="lazy" onerror="this.outerHTML='<div class=proj-thumb-ph>💼</div>'">
           {% else %}
           <div class="proj-thumb-ph">💼</div>
           {% endif %}
