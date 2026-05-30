@@ -50,18 +50,27 @@ layout: default
 }
 
 /* ── Inside the homepage popup iframe: drop the standalone window chrome ── */
-html.in-frame, html.in-frame body { background:transparent; margin:0; }
+html.in-frame, html.in-frame body {
+  background:transparent; margin:0;
+  height:auto !important;      /* override global body height:100vh */
+  overflow:visible !important; /* override global body overflow:hidden so the iframe can scroll */
+}
 html.in-frame #desktop-single {
   width:auto; height:auto; overflow:visible;
   background:transparent; background-image:none;
 }
 html.in-frame #desktop-single .win {
-  position:static; left:0; top:0; width:100%; height:auto;
+  position:static; left:0; top:0;
+  width:100% !important;   /* override inline width:calc(100vw - 80px) */
+  height:auto !important;  /* override inline height:calc(100vh - 80px) so the doc flows full-height */
   box-shadow:none; border:0; background:transparent;
 }
 html.in-frame #desktop-single .wtb,
 html.in-frame #desktop-single .wmb,
 html.in-frame #desktop-single .wsb { display:none; }
-html.in-frame #desktop-single .wbody { height:auto; margin:0; box-shadow:none; }
+/* Let the article flow naturally; the popup's iframe is the single scroller. */
+html.in-frame #desktop-single .wbody {
+  height:auto !important; margin:0; box-shadow:none; overflow:visible;
+}
 html.in-frame .frame-hide { display:none; }
 </style>
